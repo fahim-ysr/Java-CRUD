@@ -14,20 +14,20 @@ public class BooksService {
     @Autowired
     BooksRepository books_repo;
 
-//    Shows all the books
+    //    Shows all the books
     public List<Books> getAllBooks() {
-        List<Books> bookList= new ArrayList<>();
+        List<Books> bookList = new ArrayList<>();
         books_repo.findAll().forEach(book -> bookList.add(book));
 
         return bookList;
     }
 
-//    Finds a book
+    //    Finds a book
     public Books getBook(Long id) {
         return books_repo.findById(id).get();
     }
 
-//  Saves or updates a book
+    //  Saves or updates a book
     public boolean saveOrUpdateBook(Books book) {
         Books updatedBook = books_repo.save(book);
 
@@ -38,7 +38,7 @@ public class BooksService {
         return false;
     }
 
-//    Delets a book
+    //    Delets a book
     public boolean deleteBook(Long id) {
         books_repo.deleteById(id);
 

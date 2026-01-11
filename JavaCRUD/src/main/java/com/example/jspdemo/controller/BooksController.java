@@ -1,6 +1,7 @@
 // Imported required modules and packages
 
 package com.example.jspdemo.controller;
+
 import com.example.jspdemo.model.Books;
 import com.example.jspdemo.service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +17,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class BooksController {
 
-//    Injects the BooksService to interact with book data
+    //    Injects the BooksService to interact with book data
     @Autowired
     BooksService booksService;
 
-//    GET Operation (Displays the lsot of all books)
+    //    GET Operation (Displays the lsot of all books)
     @GetMapping({"/", "/viewBookList"})
     public String viewBookList(@ModelAttribute("message") String message, Model model) {
 
 //        Fetches all books and then adds them to the model
         model.addAttribute("bookList", booksService.getAllBooks());
         model.addAttribute("message", message);
-        return "viewBookList";
+        return "ViewBookList";
     }
 
-//    PUT Operation (Shows the form to add a new book)
+    //    PUT Operation (Shows the form to add a new book)
     @GetMapping("/addBook")
     public String addBook(@ModelAttribute("message") String message, Model model) {
 //        Adds an empty book object for the form
@@ -39,7 +40,7 @@ public class BooksController {
         return "AddBook";
     }
 
-//    POST Operation (Saves a new book to the database)
+    //    POST Operation (Saves a new book to the database)
     @GetMapping("/saveBook")
     public String saveBook(Books book, RedirectAttributes redirectAttributes) {
         if (booksService.saveOrUpdateBook(book)) {
@@ -50,7 +51,7 @@ public class BooksController {
         return "redirect:/addBook";
     }
 
-//    Shows the form to edit an existing book
+    //    Shows the form to edit an existing book
     @GetMapping("/editBook/{id}")
     public String editBook(@PathVariable Long id, Model model) {
 //        Adds the book to the model for editing
@@ -58,7 +59,7 @@ public class BooksController {
         return "EditBook";
     }
 
-//    Saves the edited book details
+    //    Saves the edited book details
     @PostMapping("/editSaveBook")
     public String editSaveBook(Books book, RedirectAttributes redirectAttributes) {
         if (booksService.saveOrUpdateBook(book)) {
@@ -69,13 +70,13 @@ public class BooksController {
         return "redirect:/editBook/" + book.getId();
     }
 
-//    DELETE Operation (Deletes a book by its ID)
+    //    DELETE Operation (Deletes a book by its ID)
     @GetMapping("/deleteBook/{id}")
     public String deleteBook(Long id, RedirectAttributes redirectAttributes) {
         if (booksService.deleteBook(id)) {
             redirectAttributes.addFlashAttribute("message", "Successfully deleted");
         }
         redirectAttributes.addFlashAttribute("message", "Failed to delete");
-        return "redirect:/addBook";
+        return "redirect:/viewBookList";
     }
 }

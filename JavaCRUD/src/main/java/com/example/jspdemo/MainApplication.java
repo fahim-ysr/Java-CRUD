@@ -1,6 +1,7 @@
 // Importing required modules and packages
 
 package com.example.jspdemo;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;

@@ -1,6 +1,7 @@
 // Importing required modules and packages
 
 package com.example.jspdemo.model;
+
 import jakarta.persistence.*;
 
 // Marks this class as a database table
@@ -10,7 +11,7 @@ import jakarta.persistence.*;
 
 public class Books {
 
-//    Declaring variables
+    //    Declaring variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,27 +22,27 @@ public class Books {
     @Column
     private int year;
 
-//    Constructor function
+    //    Constructor function
     public Books() {
 
     }
 
-//    Gets the id
+    //    Gets the id
     public Long getId() {
         return id;
     }
 
-//    Sets the id
+    //    Sets the id
     public void setId() {
         this.id = id;
     }
 
-//    Gets the name
+    //    Gets the name
     public String getName() {
         return name;
     }
 
-//    Sets the name
+    //    Sets the name
     public void setName(String name) {
         this.name = name;
     }
