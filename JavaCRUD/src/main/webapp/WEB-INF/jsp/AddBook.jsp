@@ -8,7 +8,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Book List</title>
+    <title>Add a book</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -26,7 +26,7 @@
 <div class="container">
     <h1 class="p-3">Add a book</h1>
 
-    <form:form>
+    <form:form action="/saveBook" method="post" modelAttribute="book">
 
         <%--Name Input--%>
         <div class="row">
