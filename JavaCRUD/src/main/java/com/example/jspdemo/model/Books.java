@@ -22,7 +22,7 @@ public class Books {
     private int year;
 
 //    Constructor function
-    private Books() {
+    public Books() {
 
     }
 
