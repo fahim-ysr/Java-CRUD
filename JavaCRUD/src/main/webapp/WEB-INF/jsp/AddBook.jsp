@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-</<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="ISO-8859-1">
@@ -19,6 +19,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
+    <!-- toastr JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- toastr CSS -->
+    <link src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"></link>
 </head>
 
 <body>
@@ -58,6 +62,37 @@
     </form:form>
 
 </div>
+
+<%--toastr message output--%>
+<script th:inline="javascript">
+
+    window.onload = function () {
+        var msg = "${message}";
+
+        if (msg == "Failed to save") {
+            Command: toastr["error"]("Error: Could not save book")
+        }
+    }
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+</script>
 
 </body>
 </html>

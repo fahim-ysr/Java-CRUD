@@ -42,7 +42,7 @@ public class BooksService {
     public boolean deleteBook(Long id) {
         books_repo.deleteById(id);
 
-        // Checks if the book exists
+        // Checks if the book no longer exists
         if (books_repo.findById(id) != null) {
             return true;
         }

@@ -24,7 +24,6 @@ public class Books {
 
     //    Constructor function
     public Books() {
-
     }
 
     //    Gets the id
@@ -33,7 +32,7 @@ public class Books {
     }
 
     //    Sets the id
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,5 +44,15 @@ public class Books {
     //    Sets the name
     public void setName(String name) {
         this.name = name;
+    }
+
+    //  Gets the year
+    public int getYear() {
+        return year;
+    }
+
+    // Sets the year
+    public void setYear(int year) {
+        this.year = year;
     }
 }
